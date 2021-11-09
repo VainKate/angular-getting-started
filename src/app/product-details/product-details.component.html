@@ -1,0 +1,16 @@
+<h2>Product Details</h2>
+
+<div *ngIf="product">
+  <h3>{{product.name}}</h3>
+  <h4>{{product.price | currency: 'EUR'}}</h4>
+  <p>{{product.description}}</p>
+
+  <app-product-alerts [product]="product" (notify)="onNotify()"></app-product-alerts>
+
+  <app-buy-button [product]="product">
+  </app-buy-button>
+</div>
+
+<div *ngIf="!product">
+  <h3>Uh-oh, it seems that product does not exist !</h3>
+</div>
